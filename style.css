@@ -10,22 +10,18 @@ body{
 }
 
 a{
-  color: #ff4f78;
+  color: #f7305e;
   text-decoration: none;
 }
 
 a:hover{
-  background-color: #e2d1d5;
+  text-decoration: underline;
 }
 
 p, .description{
   font-size: 16px;
   line-height: 24px;
   letter-spacing: 0.1px;
-}
-
-.hide{
-  display: none;
 }
 
 #container{
@@ -52,7 +48,7 @@ main{
 
 button{
   border: none;
-  color: #ff4f78;
+  color: #f7305e;
   
   text-align: center;
   cursor: pointer;
@@ -68,15 +64,16 @@ button{
 button.thin{
   border-radius: 10px 2px;
   box-shadow: 0px 8px 16px #7e787a32;
+  background-color: #cecccc;
 }
 
 button.thin:hover{
-  background-color: #e2d1d5;
+  background-color: #fff;
 }
 
 button.fat{
   color: #fff;
-  background-color: #ff4f78;
+  background-color: #f7305e;
 
   width: 150px;
   height: 40px;
@@ -87,7 +84,7 @@ button.fat{
 
 button.fat:hover{
   text-decoration: none;
-  background-color: #c01e44;
+  background-color: #c0183f;
 }
 
 footer{
@@ -128,6 +125,123 @@ footer img{
   color: #777;
 }
 
-.idea .description{
+.idea.description{
   margin: 16px 0;
+}
+
+/* modal */
+
+#modal{
+  background-color: #f7305e;
+
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: 100vw;
+
+  display: flex;
+  justify-content: center;
+
+  transition: 800ms;
+}
+
+#modal .botaoVoltar{
+  width: 800px;
+  max-width: 80%;
+  justify-self: end;
+}
+
+#modal .content{
+  margin-top: 64px;
+  color: #fff;
+}
+
+#modal .content h1{
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+#modal form{
+  max-width: 800px;
+  width: 80%;
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 20px;
+}
+
+.content form div:nth-child(3),
+.content form div:nth-child(4),
+.content form div:nth-child(5){
+  grid-column: span 2;
+}
+
+form input, 
+form textarea{
+  width: 100%;
+
+  padding: 12px;
+
+  box-sizing: border-box;
+
+  border-radius: 6px;
+  border: 1px solid rgba(139, 11, 64, 0.5);
+
+  outline: none;
+
+  font-size: 18px;
+}
+
+form label{
+  font-weight: 600;
+  line-height: 32px;
+  letter-spacing: 0.8px;
+  font-size: 18px;
+}
+
+form button{
+  background: #fff;
+
+  width: 150px;
+  height: 60px;
+
+  border-radius: 6px;
+
+  cursor: pointer;
+
+  font-size: 18px;
+  letter-spacing: 0.8px;
+
+  margin-top: 24px;
+
+  grid-column: 2;
+
+  transition: 400ms;
+}
+
+form button:hover{
+  background-color: #f3bdc9;
+  letter-spacing: 2px;
+}
+
+form button img{
+  width: 16px;
+
+}
+
+#botaoVoltar{
+  justify-self: initial;  
+}
+
+#botaoSalvar{
+  justify-self: end;
+}
+
+#modal.hide{
+ opacity: 0;
+ visibility: hidden;
 }
