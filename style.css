@@ -1,0 +1,24 @@
+body{
+  background-color: #e5e5e5;
+  color: #252525;
+  text-align: center;
+}
+
+p{
+  font-size: 16px;
+}
+
+button{
+  border: none;
+  color: #ff5e84;
+  font-weight: 700;  
+}
+
+.fat{
+  color: #fff;
+  background-color: #ff5e84;
+}
+
+.hide{
+  display: none;
+}
