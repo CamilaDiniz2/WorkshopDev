@@ -1,24 +1,133 @@
+/*
+  BOX: conteúdo da caixa (texto e/ou imagem)  
+*/
+
 body{
-  background-color: #e5e5e5;
-  color: #252525;
-  text-align: center;
+  background-color: #cecccc;
+  color: #25282b;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
 }
 
-p{
+a{
+  color: #ff4f78;
+  text-decoration: none;
+}
+
+a:hover{
+  background-color: #e2d1d5;
+}
+
+p, .description{
   font-size: 16px;
-}
-
-button{
-  border: none;
-  color: #ff5e84;
-  font-weight: 700;  
-}
-
-.fat{
-  color: #fff;
-  background-color: #ff5e84;
+  line-height: 24px;
+  letter-spacing: 0.1px;
 }
 
 .hide{
   display: none;
+}
+
+#container{
+  width: 90%;
+  max-width: 980px;
+  margin: 40px auto;
+  display: flex;
+}
+
+#intro{
+  width: 300px;
+  margin: 20px;
+}
+
+main{
+  margin: 32px 0;
+}
+
+#buttons{
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 32px;
+}
+
+button{
+  border: none;
+  color: #ff4f78;
+  
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  margin-right: 10px;
+
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: bold;
+  letter-spacing: 0.2px;
+}
+
+button.thin{
+  border-radius: 10px 2px;
+  box-shadow: 0px 8px 16px #7e787a32;
+}
+
+button.thin:hover{
+  background-color: #e2d1d5;
+}
+
+button.fat{
+  color: #fff;
+  background-color: #ff4f78;
+
+  width: 150px;
+  height: 40px;
+  
+  border-radius: 10px 2px;
+  box-shadow: 0px 8px 16px #ff5e8432;
+}
+
+button.fat:hover{
+  text-decoration: none;
+  background-color: #c01e44;
+}
+
+footer{
+  text-align: center;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.2px;
+  color: rgb(66, 66, 66);
+}
+
+footer img{
+  width: 60px;
+}
+
+.idea{
+  display: flex;
+
+  padding: 24px;
+  margin-bottom: 32px;
+
+  border-radius: 8px;
+  box-shadow: 0 4px 16px -8px rgba(1, 1, 1, 0.1);
+  background-color: #fff;
+}
+
+.idea img{
+  width: 60px;
+  height: 60px;
+  margin-right: 32px;
+}
+
+.idea h3{
+  margin: 0;
+}
+
+.idea p{
+  margin: 8px 0;
+  color: #777;
+}
+
+.idea .description{
+  margin: 16px 0;
 }

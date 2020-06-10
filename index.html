@@ -7,38 +7,116 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>.: Casa criativa</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;0,900;1,800&display=swap" rel="stylesheet">
   </head>
 
   <body>
+    <div id="container">
+      <section id="intro">
+        <!--Adiciona a logo do site -->
+        <header>
+          <img src="images/casacritiva.png" alt="Logo da Casa Criativa">
+        </header>
 
-    <!--Adiciona a logo do site -->
-    <img src="images/casacritiva.png" alt="Logo da Casa Criativa">
 
-    <!--Texto inicial, falando sobre o aplicativo-->
-    <p> 
-      Ficar em casa por períodos longos, não deve ser nada fácil 
-    </p>
+        <!--Texto inicial, falando sobre o aplicativo-->
+        <main>
+          <p> 
+            Ficar em casa por períodos longos, não deve ser nada fácil 
+          </p>
 
-    <p> 
-      Iremos catalogar ideias, 
-        <strong> 
-          brincadeiras, jogos, filmes, livros, cursos, dicas 
-        </strong>
-      e tudo que for necessário para tornar esse momento mais interessante.
-    </p>
+          <p> 
+            Iremos catalogar ideias, 
+              <strong> 
+                brincadeiras, jogos, filmes, livros, cursos, dicas 
+              </strong>
+            e tudo que for necessário para tornar esse momento mais interessante.
+          </p>
 
-    <p>
-      Comece clicando em ver ideias para ver as ideias cadastradas e contribua
-      adicionando a sua ideia.
-    </p>
+          <p>
+            Comece clicando em ver ideias para ver as ideias cadastradas e contribua
+            adicionando a sua ideia.
+          </p>
+        </main>
 
-    <!--Adiciona um botão para o usuario adicionar uma ideia e um botão para o usuario 
-    ver ideias já cadastradas -->
-    <button type="button"> + Adicionar ideia </button>
+        <!--Adiciona um botão para o usuario adicionar uma ideia e um botão para o usuario 
+        ver ideias já cadastradas -->
+        <section id="buttons">
+          <button class="thin"> + Adicionar ideia </button>
+          <button class="fat"> Ver ideias </button>
+        </section>
 
-    <button type="button" class="fat"> Ver ideias </button>
 
-    <p id="footer"> Venha nos conhecer. </p>
+        <footer> 
+           <p> Stay at  Home. </p> 
+          <img 
+            src="https://www.flaticon.com/premium-icon/icons/svg/2887/2887843.svg" 
+            alt="Imagem de uma casa" />
+        </footer>
+
+      </section>
+
+      <section id="last-ideas">
+        <div class="idea">
+          <img 
+            src="https://www.flaticon.com/premium-icon/icons/svg/2887/2887749.svg"
+            alt="Imagem curso de programação">
+
+          <div class="content">
+            <h3>Cursos de Programação</h3>
+            <p> Estudo </p>
+            <div class="description">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+              Earum amet ipsa id corrupti temporibus vitae ex velit expedita 
+              laboriosam facere inventore quis incidunt animi aperiam saepe, 
+              aliquam deserunt debitis nisi.
+            </div>
+            <a href="#"> Ir para a ideia </a>
+          </div>
+        </div>
+
+        <div class="idea">
+          <img 
+            src="https://www.flaticon.com/premium-icon/icons/svg/2887/2887839.svg"
+            alt="Imagem curso de programação">
+
+          <div class="content">
+            <h3>Tarde de jogos</h3>
+            <p> Estudo </p>
+            <div class="description">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+              Earum amet ipsa id corrupti temporibus vitae ex velit expedita 
+              laboriosam facere inventore quis incidunt animi aperiam saepe, 
+              aliquam deserunt debitis nisi.
+            </div>
+            <a href="#"> Ir para a ideia </a>
+          </div>
+        </div>
+
+        <div class="idea">
+          <img 
+            src="https://www.flaticon.com/premium-icon/icons/svg/2887/2887786.svg"
+            alt="Imagem curso de programação">
+
+          <div class="content">
+            <h3>Aprender a tocar um novo instrumento</h3>
+            <p> Estudo </p>
+            <div class="description">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+              Earum amet ipsa id corrupti temporibus vitae ex velit expedita 
+              laboriosam facere inventore quis incidunt animi aperiam saepe, 
+              aliquam deserunt debitis nisi.
+            </div>
+            <a href="#"> Ir para a ideia </a>
+          </div>
+        </div>
+      </section>
+    </div>
+      
+   
+    
+
+  
 
     <script src="main.js"></script>
     
