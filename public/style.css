@@ -128,15 +128,21 @@ footer img{
   border-radius: 8px;
   box-shadow: 0 4px 16px -8px rgba(1, 1, 1, 0.1);
   background-color: #fff;
+
+  display: flex;
+  align-items: center;
 }
 
 .idea img{
   width: 60px;
   height: 60px;
   margin-right: 32px;
+  justify-content: center;
+  align-items: center;
+  justify-self: center;
 }
 
-.idea h3{
+.idea h2{
   margin: 0;
 }
 
@@ -151,6 +157,10 @@ footer img{
 
 .idea .links a{
   margin-right: 12px;
+}
+
+.idea .links button{
+  background-color: #fff;
 }
 
 .idea .links button:hover{
@@ -219,7 +229,8 @@ footer img{
   grid-column: span 2;
 }
 
-form input, 
+form input,
+form select, 
 form textarea{
   width: 100%;
 
@@ -349,6 +360,8 @@ section#ideas{
 
 section#ideas .idea{
   margin: 0;
+  display: flex;
+  align-items: center;
 }
 
 section#ideas, 
