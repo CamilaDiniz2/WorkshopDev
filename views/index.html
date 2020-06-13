@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+  <section id="intro">
+    <!--Adiciona a logo do site -->
+    <header>
+      <a href="/">
+        <img src="images/casacritiva.png" alt="Logo da Casa Criativa">
+      </a>
+    </header>
+
+
+    <!--Texto inicial, falando sobre o aplicativo-->
+    <main>
+      <p> Ficar em casa por períodos longos, não deve ser nada fácil </p>
+
+      <p> Iremos catalogar ideias, 
+          <strong> 
+            brincadeiras, jogos, filmes, livros, cursos, dicas 
+          </strong>
+        e tudo que for necessário para tornar esse momento mais interessante.
+      </p>
+
+      <p>
+        Comece clicando em ver ideias para ver as ideias cadastradas e contribua
+        adicionando a sua ideia.
+      </p>
+    </main>
+
+    <!--Adiciona um botão para o usuario adicionar uma ideia e um botão para o usuario 
+    ver ideias já cadastradas -->
+    <section id="buttons">
+      <button class="thin" onclick="onOff()"> + Adicionar ideia </button>
+      <a class="button" href="/ideias" > Ver ideias </a>
+    </section>
+
+
+    {% include "footer.html" %}
+
+  </section>
+
+  <section id="last-ideas">
+    {% include "allIdeas.html" %}
+  </section>
+
+{% endblock %}
