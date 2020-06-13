@@ -9,7 +9,10 @@
               <h3>{{ideia.title}}</h3>
               <p> {{ideia.category}} </p>
               <div class="description"> {{ideia.description}} </div>
-              <a href="{{ideia.link}}" target="_blank"> Ir para a ideia </a>
+              <div class="links">
+                <a href="{{ideia.link}}" target="_blank"> Ir para a ideia </a>
+                <a href="/deletar-ideia/{{ideia.id}}"> <button>Deletar Ideia</button> </a>
+              </div>
             </div>
           </div>
         {% endfor %}

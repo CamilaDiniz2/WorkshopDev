@@ -93,6 +93,14 @@ server.post("/", function(req, res){
   })
 })
 
+// Rota para apagar ideia
+server.get("/deletar-ideia/:id", function(req, res){
+  db.run(`DELETE FROM ideas WHERE id = ?`, [req.params.id], function(err){
+    if (err) return console.log(err)
+  })
+  return res.redirect("/ideias")
+})
+
 
 // Liga o servidor na porta 3000
 server.listen(3000);

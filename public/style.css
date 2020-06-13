@@ -145,6 +145,19 @@ footer img{
   color: #777;
 }
 
+.idea .links{
+  margin-top: 24px;
+}
+
+.idea .links a{
+  margin-right: 12px;
+}
+
+.idea .links button:hover{
+  letter-spacing: 1px;
+  text-decoration: underline;
+}
+
 .idea.description{
   margin: 16px 0;
 }
