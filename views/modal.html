@@ -4,7 +4,7 @@
 
     <h1> Nova Ideia</h1>
 
-    <form action="">
+    <form action="/" method="POST" onsubmit="return checkFields(event)">
 
       <div class="input-wrapper">
         <label for="title">Título da ideia </label>
@@ -25,7 +25,7 @@
         <label for="description">
           Digite uma descrição para essa ideia
         </label>
-       <textarea name="description cols="30" rows="10"></textarea>
+       <textarea name="description" cols="30" rows="10"></textarea>
       </div>
 
       <div class="input-wrapper">

@@ -2,53 +2,13 @@
 const express = require("express");
 const server = express();
 
-const ideias = [
-  {
-    img: "https://image.flaticon.com/icons/svg/2737/2737110.svg",
-    title: "Curso de Programação",
-    category: "Diversão",
-  description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum amet ipsa id corrupti temporibus.",
-    url: "https://rocketseat.com.br"
-  },
-  {
-    img: "https://image.flaticon.com/icons/svg/2737/2737074.svg",
-    title: "Tarde de jogos",
-    category: "Diversão",
-  description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum amet ipsa id corrupti temporibus.",
-    url: "https://rocketseat.com.br"
-  },
-  {
-    img: "https://image.flaticon.com/icons/svg/2737/2737039.svg",
-    title: "Aprender a tocar um novo instrumento",
-    category: "Estudo",
-  description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum amet ipsa id corrupti temporibus.",
-    url: "https://rocketseat.com.br"
-  },
-  {
-    img: "https://image.flaticon.com/icons/svg/2737/2737043.svg",
-    title: "Pintar um quadro",
-    category: "Diversão",
-  description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum amet ipsa id corrupti temporibus.",
-    url: "https://rocketseat.com.br"
-  },
-  {
-    img: "https://www.flaticon.com/premium-icon/icons/svg/2887/2887718.svg",
-    title: "Ler um livro",
-    category: "Diversão",
-  description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum amet ipsa id corrupti temporibus.",
-    url: "https://rocketseat.com.br"
-  },
-  {
-    img: "https://www.flaticon.com/premium-icon/icons/svg/2887/2887775.svg",
-    title: "Fazer exercício",
-    category: "Saúde",
-  description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum amet ipsa id corrupti temporibus.",
-    url: "https://rocketseat.com.br"
-  },
-]
+const db = require("./db")
 
-// Configurar arquivos estaticos
+// Configurar arquivos estaticos (css, scripts, imagens)
 server.use(express.static("public"));
+
+// Habilita o uso do req.body
+server.use(express.urlencoded({ extended: true }))
 
 // Configuracao do nunjucks
 const nunjucks = require("nunjucks");
@@ -61,21 +21,77 @@ nunjucks.configure("views", {
 // e captura um pedido do cliente para responder
 server.get("/", function(req, res){
 
-  const reversedIdeas = [...ideias].reverse();
-  let lastIdeas = []
-  // escolhe apenas 2 atividades para serem exebidas na página inicial
-  for (let idea of reversedIdeas){
-    if(lastIdeas.length < 2){
-      lastIdeas.push(idea)
+
+  db.all(`SELECT * FROM ideas`, function(err, rows){
+
+     // Tratando os erros
+     if (err){
+      console.log(err)
+      return res.send("Erro no Banco de Dados")
     }
-  }
-  return res.render("index.html", { ideias: lastIdeas });
+
+    const reversedIdeas = [...rows].reverse();
+    let lastIdeas = []
+
+    // escolhe apenas 2 atividades para serem exebidas na página inicial
+    for (let idea of reversedIdeas){
+      if(lastIdeas.length < 2){
+        lastIdeas.push(idea)
+      }
+    }
+    return res.render("index.html", { ideias: lastIdeas });
+  })
 });
+
+
 
 server.get("/ideias", function(req, res){
 
-  return res.render("ideias.html", { ideias: [...ideias].reverse() });
+  db.all(`SELECT * FROM ideas`, function(err, rows){
+
+    // Tratando os erros
+    if (err){
+      console.log(err)
+      return res.send("Erro no Banco de Dados")
+    }
+
+    const reversedIdeas = [...rows].reverse();
+
+    return res.render("ideias.html", { ideias: reversedIdeas });
+  });
 });
+
+// cria uma rota para receber os dados digitados no formulario
+server.post("/", function(req, res){
+  //INSERE OS DADOS NA TABELA
+  const query = `
+  INSERT INTO ideas(
+    image,
+    title,
+    category,
+    description,
+    link
+  ) VALUES (?,?,?,?,?);
+`
+
+  const values = [
+    req.body.image,
+    req.body.title,
+    req.body.category,
+    req.body.description,
+    req.body.link,
+  ]
+
+  db.run(query, values, function(err){
+    // Tratando os erros
+    if (err){
+      console.log(err)
+      return res.send("Erro no Banco de Dados")
+    }
+
+    return res.redirect("/ideias")
+  })
+})
 
 
 // Liga o servidor na porta 3000
