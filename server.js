@@ -19,6 +19,8 @@ nunjucks.configure("views", {
 
 // criar uma rota /
 // e captura um pedido do cliente para responder
+
+//Rota para mostrar na página inicial as duas últimas ideias cadastradas.
 server.get("/", function(req, res){
 
 
@@ -44,7 +46,7 @@ server.get("/", function(req, res){
 });
 
 
-
+// rota que mostra na tela ideias todas as rotas cadastradas
 server.get("/ideias", function(req, res){
 
   db.all(`SELECT * FROM ideas`, function(err, rows){
@@ -59,6 +61,58 @@ server.get("/ideias", function(req, res){
 
     return res.render("ideias.html", { ideias: reversedIdeas });
   });
+});
+
+// rota que mostra as ideias separadas por categoria
+/*server.get("/ideias", function(req, res){
+  db.all(`SELECT * FROM ideas`, function(err, rows){
+
+    // Tratando os erros
+    if (err){
+     console.log(err)
+     return res.send("Erro no Banco de Dados")
+   }
+
+   const reversedIdeas = [...rows].reverse();
+   let educationIdeas = []
+
+   // escolhe apenas 2 atividades para serem exebidas na página inicial
+   for (let idea of reversedIdeas){
+     if(idea.category === "Diversão"){
+       educationIdeas.push(idea)
+     }
+   }
+   return res.render("ideias.html", { ideias: educationIdeas });
+ })
+})*/
+
+// rota que mostra apenas o numeero de ideias escolhidas
+server.get("/mostrar-ideias/:numeroIdeias", function(req, res){
+
+
+  db.all(`SELECT * FROM ideas`, function(err, rows){
+
+     // Tratando os erros
+     if (err){
+      console.log(err)
+      return res.send("Erro no Banco de Dados")
+    }
+
+    const reversedIdeas = [...rows].reverse();
+    let lastIdeas = []
+
+    const numeroDeIdeias = document.getElementById("numIdeas").value;
+
+    // escolhe apenas 2 atividades para serem exebidas na página inicial
+    for (let idea of reversedIdeas){
+      if(lastIdeas.length < numeroDeIdeias){
+        lastIdeas.push(idea)
+      }
+    }
+
+    console.log(lastIdeas)
+    return res.render("ideias.html", { ideias: lastIdeas });
+  })
 });
 
 // cria uma rota para receber os dados digitados no formulario

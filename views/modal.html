@@ -1,8 +1,8 @@
-<!-- Modal: formulário  -->
+
 <div id="modal" class="hide">
   <div class="content">
 
-    <h1> Nova Ideia</h1>
+    <h1> Nova Ideia </h1>
 
     <form action="/" method="POST" onsubmit="return checkFields(event)">
 
@@ -40,19 +40,7 @@
         <input type="url" name="link">
       </div>    
 
-      <div class="input-wrapper" id="botaoVoltar">
-        <button onclick="onOff()"> 
-          <img src="images/back.png" alt="">
-          Voltar
-        </button>
-      </div>
-   
-      <div class="input-wrapper" id="botaoSalvar">
-        <button> 
-          <img src="images/save.png" alt="">
-          Salvar 
-        </button>
-      </div>
+      {% include "botoes.html" %}
 
     </form>
   </div>

@@ -15,6 +15,11 @@ function onOff(){
     .toggle("addScroll")
 }
 
+function checkNumber(){
+  const numeroDeIdeias = document.getElementById("numIdeas").value;
+}
+
+
 function checkFields(event){
   const valuesToCheck = [
     "title",

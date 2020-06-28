@@ -82,7 +82,7 @@ main{
   margin-bottom: 32px;
 }
 
-button{
+button {
   border: none;
   color: #f7305e;
   
@@ -118,6 +118,19 @@ footer{
 footer img{
   width: 60px;
 }
+
+#last-ideas .login{
+  margin-bottom: 32px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+#last-ideas .login button{
+  width: 100px;
+  height: 40px;
+  margin-left: 24px;
+}
+
 
 .idea{
   display: flex;
@@ -156,7 +169,7 @@ footer img{
 }
 
 .idea .links a{
-  margin-right: 12px;
+  margin-right: 32px;
 }
 
 .idea .links button{
@@ -164,7 +177,6 @@ footer img{
 }
 
 .idea .links button:hover{
-  letter-spacing: 1px;
   text-decoration: underline;
 }
 
@@ -295,7 +307,6 @@ form button img{
  opacity: 0;
  visibility: hidden;
 }
-
 
 
 
